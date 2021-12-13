@@ -7,7 +7,7 @@ My project template for learning Next.js that includes TypeScript, Tailwind CSS,
 `create-next-app` has an optional `--example` flag that will bootstrap a new project based on an existing GitHub repository. To create a new project from this template, run the following command:
 
 ```
-$ npx create-next-app my-app --use-npm --example https://github.com/mqunell/nextjs-template
+npx create-next-app my-app --use-npm --example https://github.com/mqunell/nextjs-template
 ```
 
 ---
@@ -19,22 +19,22 @@ $ npx create-next-app my-app --use-npm --example https://github.com/mqunell/next
 Use `create-next-app` to generate a barebones Next.js project
 
 ```
-$ npx create-next-app my-app --use-npm
+npx create-next-app my-app --use-npm
 ```
 
 ### TypeScript
 
 1. Create tsconfig.json in the root of the project
    ```
-   $ touch tsconfig.json
+   touch tsconfig.json
    ```
 2. Install dependencies
    ```
-   $ npm install --save-dev typescript @types/react @types/node
+   npm install --save-dev typescript @types/react @types/node
    ```
 3. Start the development server. This will cause Next.js to populate `tsconfig.json` and create `next-env.d.ts`
    ```
-   $ npm run dev
+   npm run dev
    ```
 
 <sub>See the [Next.js guide](https://nextjs.org/learn/excel/typescript/create-tsconfig) for more information.</sub>
@@ -43,11 +43,11 @@ $ npx create-next-app my-app --use-npm
 
 1. Install dev dependencies
    ```
-   $ npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+   npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
    ```
 2. Create default configuration files
    ```
-   $ npx tailwindcss init -p
+   npx tailwindcss init -p
    ```
 3. Add tree-shaking to production builds by modifying `tailwind.config.js`
    ```
@@ -67,7 +67,7 @@ $ npx create-next-app my-app --use-npm
    - Configure database access user credentials _(this will be a different password than the account password!)_
 2. Install Mongoose package
    ```
-   $ npm install mongoose
+   npm install mongoose
    ```
 3. Create .env.local file
    ```
@@ -83,7 +83,7 @@ ESLint is integrated with Next.js, but Prettier is not installed or configured b
 
 1. Install Prettier dev dependency
    ```
-   $ npm install --save-dev eslint-config-prettier
+   npm install --save-dev eslint-config-prettier
    ```
 2. Add Prettier to `.eslintrc.json`
    ```
