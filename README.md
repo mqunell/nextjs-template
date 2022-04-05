@@ -51,8 +51,8 @@ npx create-next-app my-app --use-npm
    ```
 3. Add tree-shaking to production builds by modifying `tailwind.config.js`
    ```
-   - purge: []
-   + purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}']
+   - content: []
+   + content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}']
    ```
 4. Include Tailwind in one of two ways
    - Import Tailwind directly in \_app.js
