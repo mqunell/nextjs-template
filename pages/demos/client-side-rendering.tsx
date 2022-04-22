@@ -1,17 +1,16 @@
 import Head from 'next/head';
-import useSWR from 'swr';
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 export default function ClientSideRendering() {
-	const { data, error } = useSWR('/api/hello', fetcher);
+	const [fetchText, setFetchText] = useState('Loading...');
 
-	// Determine the output to display based on useSWR results
-	const getFetchText = () => {
-		if (error) return 'Failed to load';
-		if (!data) return 'Loading...';
-		return data.text;
-	};
+	useEffect(() => {
+		axios
+			.get('/api/hello')
+			.then((res) => setFetchText(res.data.text))
+			.catch((error) => setFetchText(`Failed to load: ${JSON.stringify(error)}`));
+	}, []);
 
 	return (
 		<div className="p-8">
@@ -22,8 +21,8 @@ export default function ClientSideRendering() {
 			</Head>
 
 			<h1 className="text-lg underline">Client-side Rendering</h1>
-			<p>The `useSWR` hook fetches data from `api/hello`:</p>
-			<p>{getFetchText()}</p>
+			<p>Use Axios, useEffect, and useState to retrieve data from `api/hello`:</p>
+			<p>{fetchText}</p>
 		</div>
 	);
 }
