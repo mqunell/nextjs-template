@@ -1,4 +1,4 @@
-My project template for learning Next.js that includes TypeScript, Tailwind CSS, Mongoose, ESLint, and Prettier. Also includes some basic code examples.
+My Next.js project template that includes TypeScript, Tailwind CSS, Mongoose, ESLint, and Prettier. Also includes some basic code stubs.
 
 ---
 
