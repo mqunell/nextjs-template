@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { getUsers } from '../lib/users';
+import { getUsers } from '@/lib/users';
 
 export default function Home() {
 	return (
