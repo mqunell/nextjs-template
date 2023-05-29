@@ -2,7 +2,7 @@ import Head from 'next/head';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-export default function ClientSideRendering() {
+const ClientSideRendering = () => {
 	const [fetchText, setFetchText] = useState('Loading...');
 
 	useEffect(() => {
@@ -25,4 +25,6 @@ export default function ClientSideRendering() {
 			<p>{fetchText}</p>
 		</div>
 	);
-}
+};
+
+export default ClientSideRendering;

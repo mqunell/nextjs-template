@@ -16,17 +16,17 @@ export const getStaticProps: GetStaticProps = async () => {
 	return { props: { users }, revalidate: 10 };
 };
 
-export default function StaticGeneration({ users }: { users: User[] }) {
-	return (
-		<div className="p-8">
-			<Head>
-				<title>SSG Demo</title>
-				<meta name="description" content="SSG Demo" />
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
+const StaticGeneration = ({ users }: { users: User[] }) => (
+	<div className="p-8">
+		<Head>
+			<title>SSG Demo</title>
+			<meta name="description" content="SSG Demo" />
+			<link rel="icon" href="/favicon.ico" />
+		</Head>
 
-			<h1 className="text-lg underline">Static Generation</h1>
-			<ul>{users && users.map((user) => <li key={user._id}>{user.name}</li>)}</ul>
-		</div>
-	);
-}
+		<h1 className="text-lg underline">Static Generation</h1>
+		<ul>{users && users.map((user) => <li key={user._id}>{user.name}</li>)}</ul>
+	</div>
+);
+
+export default StaticGeneration;

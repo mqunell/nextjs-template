@@ -16,17 +16,17 @@ export const getServerSideProps: GetServerSideProps = async () => {
 	return { props: { users } };
 };
 
-export default function ServerSideRendering({ users }: { users: User[] }) {
-	return (
-		<div className="p-8">
-			<Head>
-				<title>SSR Demo</title>
-				<meta name="description" content="SSR Demo" />
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
+const ServerSideRendering = ({ users }: { users: User[] }) => (
+	<div className="p-8">
+		<Head>
+			<title>SSR Demo</title>
+			<meta name="description" content="SSR Demo" />
+			<link rel="icon" href="/favicon.ico" />
+		</Head>
 
-			<h1 className="text-lg underline">Server-side Rendering</h1>
-			<ul>{users && users.map((user) => <li key={user._id}>{user.name}</li>)}</ul>
-		</div>
-	);
-}
+		<h1 className="text-lg underline">Server-side Rendering</h1>
+		<ul>{users && users.map((user) => <li key={user._id}>{user.name}</li>)}</ul>
+	</div>
+);
+
+export default ServerSideRendering;

@@ -7,6 +7,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
  * req is http.IncomingMessage plus some pre-built middlewares
  * res is http.ServerResponse plus some helper functions
  */
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
 	res.status(200).json({ text: 'Hello via API' });
-}
+};
+
+export default handler;

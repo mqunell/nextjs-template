@@ -1,3 +1,1 @@
-export function getUsers(): string[] {
-	return ['a', 'b', 'c'];
-}
+export const getUsers = (): string[] => ['a', 'b', 'c'];

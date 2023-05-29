@@ -2,28 +2,26 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { getUsers } from '@/lib/users';
 
-export default function Home() {
-	return (
-		<div className="flex flex-col gap-2 p-8">
-			<Head>
-				<title>Next.js App</title>
-				<meta name="description" content="Next.js App" />
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
+const HomeLink = ({ url, text }: { url: string; text: string }) => (
+	<Link href={url}>
+		<a className="text-blue-500 hover:underline">{text}</a>
+	</Link>
+);
 
-			<HomeLink url="/demos/static-generation" text="Static Generation" />
-			<HomeLink url="/demos/server-side-rendering" text="Server-side Rendering" />
-			<HomeLink url="/demos/client-side-rendering" text="Client-side Rendering" />
+const Home = () => (
+	<div className="flex flex-col gap-2 p-8">
+		<Head>
+			<title>Next.js App</title>
+			<meta name="description" content="Next.js App" />
+			<link rel="icon" href="/favicon.ico" />
+		</Head>
 
-			<p>../lib/users: {getUsers().toString()}</p>
-		</div>
-	);
-}
+		<HomeLink url="/demos/static-generation" text="Static Generation" />
+		<HomeLink url="/demos/server-side-rendering" text="Server-side Rendering" />
+		<HomeLink url="/demos/client-side-rendering" text="Client-side Rendering" />
 
-const HomeLink = ({ url, text }: { url: string; text: string }) => {
-	return (
-		<Link href={url}>
-			<a className="text-blue-500 hover:underline">{text}</a>
-		</Link>
-	);
-};
+		<p>../lib/users: {getUsers().toString()}</p>
+	</div>
+);
+
+export default Home;
