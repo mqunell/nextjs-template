@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI: string | any = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
 	throw new Error('MONGODB_URI missing in .env.local');
@@ -10,10 +10,10 @@ if (!MONGODB_URI) {
  * Global is used here to maintain a cached connection across hot reloads in development.
  * This prevents connections growing exponentially during API Route usage.
  */
-let cached = global.mongoose;
+let cached = (global as any).mongoose;
 
 if (!cached) {
-	cached = global.mongoose = { conn: null, promise: null };
+	cached = (global as any).mongoose = { conn: null, promise: null };
 }
 
 async function dbConnect() {

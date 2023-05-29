@@ -5,10 +5,15 @@ describe('Home', () => {
 	it('renders a heading', () => {
 		render(<Home />);
 
-		const heading = screen.getByRole('link', {
-			name: /static generation/i,
-		});
+		const expectedLinks = [
+			/static generation/i,
+			/server-side rendering/i,
+			/client-side rendering/i,
+		];
 
-		expect(heading).toBeInTheDocument();
+		expectedLinks.forEach((name) => {
+			const link = screen.getByRole('link', { name });
+			expect(link).toBeInTheDocument();
+		});
 	});
 });

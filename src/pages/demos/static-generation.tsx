@@ -16,7 +16,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	return { props: { users }, revalidate: 10 };
 };
 
-export default function StaticGeneration({ users }) {
+export default function StaticGeneration({ users }: { users: User[] }) {
 	return (
 		<div className="p-8">
 			<Head>

@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 	return { props: { users } };
 };
 
-export default function ServerSideRendering({ users }) {
+export default function ServerSideRendering({ users }: { users: User[] }) {
 	return (
 		<div className="p-8">
 			<Head>
