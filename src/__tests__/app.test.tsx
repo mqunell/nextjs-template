@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import Home from '@/pages/index';
+import Home from '@/app/page';
 
+// todo: find the naming convention for test files
 describe('Home', () => {
 	it('renders links', () => {
 		render(<Home />);
