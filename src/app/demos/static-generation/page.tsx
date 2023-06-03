@@ -1,19 +1,30 @@
-import SsgPage from './ssg';
-import dbConnect from '@/lib/dbConnect';
-import User from '@/models/User';
+import { cache } from 'react';
+import { Metadata } from 'next';
+import { getUsers } from '@/lib/users';
 
-// todo: how do I specify SSG?
+export const metadata: Metadata = {
+	title: 'SSG Demo',
+	description: 'SSG Demo',
+	icons: {
+		icon: '/favicon.ico',
+	},
+};
+
+// Revalidate the page every 60 seconds
+export const revalidate = 60;
+
+// The cache function is used for SSG when not using fetch
+const cacheGetUsers = cache(getUsers);
+
 const Page = async () => {
-	await dbConnect();
+	const users = await cacheGetUsers();
 
-	const result = await User.find({});
-	const users = result.map((doc) => {
-		const user = doc.toObject();
-		user._id = user._id.toString();
-		return user;
-	});
-
-	return <SsgPage users={users} />;
+	return (
+		<>
+			<h1 className="text-lg underline">Static Generation</h1>
+			<ul>{users && users.map((user) => <li key={user._id}>{user.name}</li>)}</ul>
+		</>
+	);
 };
 
 export default Page;
