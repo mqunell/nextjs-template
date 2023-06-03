@@ -1,3 +1,4 @@
+import { getUsers } from '@/lib/users';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 /**
@@ -7,8 +8,9 @@ import { NextApiRequest, NextApiResponse } from 'next';
  * req is http.IncomingMessage plus some pre-built middlewares
  * res is http.ServerResponse plus some helper functions
  */
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
-	res.status(200).json({ text: 'Hello via API' });
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+	const users = await getUsers();
+	res.status(200).json(users);
 };
 
 export default handler;
