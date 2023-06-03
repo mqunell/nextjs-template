@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { getUsers } from '@/lib/users';
 
 export const metadata: Metadata = {
 	title: 'Next.js Template',
@@ -23,8 +22,6 @@ const Home = () => (
 				{text}
 			</Link>
 		))}
-
-		<p>../lib/users: {getUsers().toString()}</p>
 	</div>
 );
 
