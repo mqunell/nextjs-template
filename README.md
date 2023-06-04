@@ -12,7 +12,7 @@ npx create-next-app my-app --use-npm --example https://github.com/mqunell/nextjs
 
 ---
 
-## Recreate the Project Step-by-Step
+## Recreate the Project Step-by-Step (NOTE: This may be outdated now with Next.js v13)
 
 ### Next.js
 
