@@ -1,19 +1,26 @@
-import SsrPage from './ssr';
-import dbConnect from '@/lib/dbConnect';
-import User from '@/models/User';
+import { Metadata } from 'next';
+import { getUsers } from '@/lib/users';
 
-// todo: how do I specify SSR?
+export const metadata: Metadata = {
+	title: 'SSR Demo',
+	description: 'SSR Demo',
+	icons: {
+		icon: '/favicon.ico',
+	},
+};
+
+// Revalidate the page on every request. Pages are automatically server-side rendered in Next 13
+export const revalidate = 0;
+
 const Page = async () => {
-	await dbConnect();
+	const users = await getUsers();
 
-	const result = await User.find({});
-	const users = result.map((doc) => {
-		const user = doc.toObject();
-		user._id = user._id.toString();
-		return user;
-	});
-
-	return <SsrPage users={users} />;
+	return (
+		<>
+			<h1 className="text-lg underline">Server-side Rendering</h1>
+			<ul>{users && users.map((user) => <li key={user._id}>{user.name}</li>)}</ul>
+		</>
+	);
 };
 
 export default Page;
