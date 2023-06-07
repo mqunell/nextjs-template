@@ -8,8 +8,8 @@ const ClientSideRendering = () => {
 	useEffect(() => {
 		fetch('/api/users')
 			.then((res) => res.json())
-			.then((data) => {
-				const names = data.map((user: User) => user.name);
+			.then(({ users }) => {
+				const names = users.map((user: User) => user.name);
 				setUsernames(names.join(', '));
 			})
 			.catch((error) => setUsernames(`Failed to load: ${JSON.stringify(error)}`));
