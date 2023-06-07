@@ -1,4 +1,3 @@
-import { cache } from 'react';
 import { Metadata } from 'next';
 import { getUsers } from '@/lib/users';
 
@@ -13,11 +12,8 @@ export const metadata: Metadata = {
 // Revalidate the page every 60 seconds for ISR
 export const revalidate = 60;
 
-// The cache function is used for SSG when not using fetch
-const cacheGetUsers = cache(getUsers);
-
 const Page = async () => {
-	const users = await cacheGetUsers();
+	const users = await getUsers();
 
 	return (
 		<>
