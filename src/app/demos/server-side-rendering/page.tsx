@@ -1,13 +1,8 @@
 import { Metadata } from 'next';
 import { getUsers } from '@/lib/users';
+import { basicMetadata } from '@/lib/basicMetadata';
 
-export const metadata: Metadata = {
-	title: 'SSR Demo',
-	description: 'SSR Demo',
-	icons: {
-		icon: '/favicon.ico',
-	},
-};
+export const metadata: Metadata = basicMetadata('SSR Demo');
 
 // Revalidate the page on every request. Pages are automatically server-side rendered in Next 13
 export const revalidate = 0;

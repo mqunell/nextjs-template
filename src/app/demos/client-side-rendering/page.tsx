@@ -1,13 +1,8 @@
 import { Metadata } from 'next';
 import ClientSideRendering from './ClientSideRendering';
+import { basicMetadata } from '@/lib/basicMetadata';
 
-export const metadata: Metadata = {
-	title: 'CSR Demo',
-	description: 'CSR Demo',
-	icons: {
-		icon: '/favicon.ico',
-	},
-};
+export const metadata: Metadata = basicMetadata('CSR Demo');
 
 const Page = async () => <ClientSideRendering />;
 

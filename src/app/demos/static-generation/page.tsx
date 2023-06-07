@@ -1,13 +1,8 @@
 import { Metadata } from 'next';
 import { getUsers } from '@/lib/users';
+import { basicMetadata } from '@/lib/basicMetadata';
 
-export const metadata: Metadata = {
-	title: 'SSG Demo',
-	description: 'SSG Demo',
-	icons: {
-		icon: '/favicon.ico',
-	},
-};
+export const metadata: Metadata = basicMetadata('SSG Demo');
 
 // Revalidate the page every 60 seconds for ISR
 export const revalidate = 60;
