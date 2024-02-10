@@ -1,13 +1,4 @@
-import { Metadata } from 'next';
 import Link from 'next/link';
-
-export const metadata: Metadata = {
-	title: 'Next.js Template',
-	description: 'My customized Next.js template to quickly start future projects',
-	icons: {
-		icon: '/favicon.ico',
-	},
-};
 
 const links = [
 	{ text: 'Static Generation', url: '/demos/static-generation' },
