@@ -1,5 +1,5 @@
-import dbConnect from './dbConnect';
 import User from '@/models/User';
+import dbConnect from './dbConnect';
 
 export const getUsers = async (): Promise<User[]> => {
 	await dbConnect();

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import { getUsers } from '@/lib/users';
 import { basicMetadata } from '@/lib/basicMetadata';
+import { getUsers } from '@/lib/users';
 
 export const metadata: Metadata = basicMetadata('SSR Demo');
 

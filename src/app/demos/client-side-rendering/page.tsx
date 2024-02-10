@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import ClientSideRendering from './ClientSideRendering';
 import { basicMetadata } from '@/lib/basicMetadata';
+import ClientSideRendering from './ClientSideRendering';
 
 export const metadata: Metadata = basicMetadata('CSR Demo');
 
