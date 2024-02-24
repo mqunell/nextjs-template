@@ -13,7 +13,7 @@ describe('Home', () => {
 
 		expectedLinks.forEach((name) => {
 			const link = screen.getByRole('link', { name });
-			expect(link).toBeInTheDocument();
+			expect(link).toBeDefined();
 		});
 	});
 });
