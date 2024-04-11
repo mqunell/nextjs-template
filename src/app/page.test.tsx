@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Home from '@/app/page';
+import Home from './page';
 
 describe('Home', () => {
 	it('renders links', () => {
@@ -12,8 +12,7 @@ describe('Home', () => {
 		];
 
 		expectedLinks.forEach((name) => {
-			const link = screen.getByRole('link', { name });
-			expect(link).toBeDefined();
+			expect(screen.getByRole('link', { name })).toBeInTheDocument();
 		});
 	});
 });

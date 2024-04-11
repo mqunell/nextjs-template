@@ -3,23 +3,39 @@
 import { useEffect, useState } from 'react';
 
 const ClientSideRendering = () => {
-	const [usernames, setUsernames] = useState<String>('Loading...');
+	const [users, setUsers] = useState<User[]>([]);
+	const [loading, setLoading] = useState<boolean>(true);
+	const [error, setError] = useState<string>();
 
 	useEffect(() => {
 		fetch('/api/users')
 			.then((res) => res.json())
-			.then(({ users }) => {
-				const names = users.map((user: User) => user.name);
-				setUsernames(names.join(', '));
-			})
-			.catch((error) => setUsernames(`Failed to load: ${JSON.stringify(error)}`));
+			.then((data) => setUsers(data.users))
+			.catch((error) => setError(error))
+			.finally(() => setLoading(false));
 	}, []);
+
+	const output = () => {
+		if (loading) {
+			return <p>Loading...</p>;
+		}
+
+		if (error) {
+			return (
+				<p role="alert" aria-label="Error">
+					Error fetching users
+				</p>
+			);
+		}
+
+		return users.map(({ name }) => <p key={name}>{name}</p>);
+	};
 
 	return (
 		<>
 			<h1 className="text-lg underline">Client-side Rendering</h1>
 			<p>Use fetch, useEffect, and useState to retrieve data from `/api/users`:</p>
-			<p>{usernames}</p>
+			{output()}
 		</>
 	);
 };
