@@ -1,4 +1,4 @@
 type User = {
-	_id: string;
-	name: string;
-};
+	_id: string
+	name: string
+}
