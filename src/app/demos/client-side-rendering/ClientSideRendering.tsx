@@ -28,7 +28,7 @@ const ClientSideRendering = () => {
 			)
 		}
 
-		return users.map(({ name }) => <p key={name}>{name}</p>)
+		return users.map(({ id, name }) => <p key={id}>{name}</p>)
 	}
 
 	return (

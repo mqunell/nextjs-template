@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
+import { getUsers } from '@/db/queries'
 import { basicMetadata } from '@/lib/basicMetadata'
-import { getUsers } from '@/lib/users'
 
 export const metadata: Metadata = basicMetadata('SSR Demo')
 
@@ -13,7 +13,7 @@ const Page = async () => {
 	return (
 		<>
 			<h1 className="text-lg underline">Server-side Rendering</h1>
-			<ul>{users && users.map((user) => <li key={user._id}>{user.name}</li>)}</ul>
+			<ul>{users && users.map((user) => <li key={user.id}>{user.name}</li>)}</ul>
 		</>
 	)
 }

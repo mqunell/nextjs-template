@@ -3,7 +3,7 @@
 - App Router
 - TypeScript
 - Tailwind CSS
-- Mongoose
+- node-postgres (`pg`)
 - Vitest
 - ESLint, Prettier, and some plugins
 - Basic code stubs and examples
@@ -22,19 +22,22 @@ pnpm create next-app name-goes-here --use-pnpm --example https://github.com/mqun
 
 ## Additional setup instructions and usage notes
 
-### MongoDB
+### Postgres
 
-1. Set up the MongoDB Atlas project
-   - Configure network access by allowing 0.0.0.0/0 if deploying to Vercel
-   - Configure database access user credentials _(this will be a different password than the account password!)_
-2. Create `.env.local` file with the URI string
+1. Set up the Supabase project
+2. Create a `.env` file with the various config settings
    ```
-   MONGODB_URI=<Atlas URI>
+   POSTGRES_PASS=
+   POSTGRES_USER=
+   POSTGRES_HOST=
+   POSTGRES_PORT=
+   POSTGRES_DB=
    ```
+   > The port should be a number, but automatically becomes a string when stored as an environment variable. That's okay in this template because it gets casted to a number when used for the database connection.
 
 ### Deployment
 
-[Vercel](https://vercel.com/) is recommended for deploying Next.js applications. Simply follow the steps, which include connecting to a GitHub repository and entering environment variables (ex. MONGODB_URI), to host the app online.
+[Vercel](https://vercel.com/) is recommended for deploying Next.js applications. Simply follow the steps, which include connecting to a GitHub repository and entering environment variables, to host the app online.
 
 ### VS Code Plugins
 
