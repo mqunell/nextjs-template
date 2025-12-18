@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { getUsers } from '@/db/queries'
 import { basicMetadata } from '@/lib/basicMetadata'
 
@@ -13,7 +13,11 @@ const Page = async () => {
 	return (
 		<>
 			<h1 className="text-lg underline">Static Generation</h1>
-			<ul>{users && users.map((user) => <li key={user.id}>{user.name}</li>)}</ul>
+			<ul>
+				{users?.map((user) => (
+					<li key={user.id}>{user.name}</li>
+				))}
+			</ul>
 		</>
 	)
 }

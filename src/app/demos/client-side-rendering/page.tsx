@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { basicMetadata } from '@/lib/basicMetadata'
 import ClientSideRendering from './ClientSideRendering'
 

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { delay, http, HttpResponse } from 'msw'
+import { delay, HttpResponse, http } from 'msw'
 import { server } from '@/testing/mocks/server'
 import ClientSideRendering from './ClientSideRendering'
 
