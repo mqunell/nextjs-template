@@ -5,7 +5,7 @@
 - Tailwind CSS
 - node-postgres (`pg`)
 - Vitest
-- ESLint, Prettier, and some plugins
+- Biome
 - Basic code stubs and examples
 
 <br />
@@ -43,8 +43,7 @@ pnpm create next-app name-goes-here --use-pnpm --example https://github.com/mqun
 
 Some plugins that are specifically relevant to this template include:
 
-- ESLint
-- Prettier - Code formatter
+- Biome
 - Tailwind CSS IntelliSense
 - Tailwind Fold
 - Vitest
