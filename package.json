@@ -6,10 +6,11 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"biome-check": "biome check",
-		"biome-fix": "biome check --write",
+		"lint": "biome check",
+		"lint:fix": "biome check --write",
 		"test": "vitest",
-		"ts-script": "tsx src/server/script.ts"
+		"ts-script": "tsx src/server/script.ts",
+		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
 		"clsx": "^2.1.1",
