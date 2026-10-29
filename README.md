@@ -24,7 +24,7 @@ pnpm create next-app name-goes-here --use-pnpm --example https://github.com/mqun
 
 ### Postgres
 
-1. Set up the Supabase project
+1. Set up the [Neon](https://neon.com/) project
 2. Create a `.env` file with the various config settings
    ```
    POSTGRES_PASS=
