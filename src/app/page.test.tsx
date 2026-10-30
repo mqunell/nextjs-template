@@ -1,14 +1,23 @@
+vi.mock('@/db/queries', () => ({
+	getUsers: vi.fn(),
+}))
+
 import { render, screen } from '@testing-library/react'
+import { getUsers } from '@/db/queries' // Imports from the mock, not the real file
 import Home from './page'
 
 describe('Home', () => {
-	it('renders links', () => {
-		render(<Home />)
+	it('renders demo users', async () => {
+		vi.mocked(getUsers).mockResolvedValue([
+			{ id: 1, name: 'Alice' },
+			{ id: 2, name: 'Bob' },
+			{ id: 3, name: 'Charlie' },
+		])
 
-		const expectedLinks = [/static generation/i, /server-side rendering/i, /client-side rendering/i]
+		render(await Home())
 
-		expectedLinks.forEach((linkText) => {
-			expect(screen.getByRole('link', { name: linkText })).toHaveClass('text-blue-500')
-		})
+		expect(screen.getByRole('heading', { name: /README\.md/i }))
+		expect(screen.getByRole('code')).toHaveTextContent(/README.md/)
+		expect(screen.getByText('Demo users: Alice, Bob, Charlie')).toBeInTheDocument()
 	})
 })

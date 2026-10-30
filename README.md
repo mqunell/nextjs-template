@@ -25,15 +25,11 @@ pnpm create next-app name-goes-here --use-pnpm --example https://github.com/mqun
 ### Postgres
 
 1. Set up the [Neon](https://neon.com/) project
-2. Create a `.env` file with the various config settings
+2. Create a `.env` file with the Postgres connection string
+
    ```
-   POSTGRES_PASS=
-   POSTGRES_USER=
-   POSTGRES_HOST=
-   POSTGRES_PORT=
-   POSTGRES_DB=
+   POSTGRES_URL=
    ```
-   > The port should be a number, but automatically becomes a string when stored as an environment variable. That's okay in this template because it gets casted to a number when used for the database connection.
 
 ### Deployment
 

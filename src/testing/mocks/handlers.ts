@@ -1,15 +1,5 @@
-import { delay, HttpResponse, http } from 'msw'
+// import { HttpResponse, http } from 'msw'
 
 export const handlers = [
-	http.get('/api/users', async () => {
-		await delay(100)
-
-		const users: User[] = [
-			{ id: '1', name: 'Mock Alice' },
-			{ id: '2', name: 'Mock Bob' },
-			{ id: '3', name: 'Mock Charlie' },
-		]
-
-		return HttpResponse.json({ users })
-	}),
+	// Stub: Add mock api handlers here
 ]

@@ -1,19 +1,20 @@
-import Link from 'next/link'
+import { getUsers } from '@/db/queries'
 
-const links = [
-	{ text: 'Static Generation', url: '/demos/static-generation' },
-	{ text: 'Server-side Rendering', url: '/demos/server-side-rendering' },
-	{ text: 'Client-side Rendering', url: '/demos/client-side-rendering' },
-]
+const Home = async () => {
+	const users = await getUsers()
+	const names = users.map((user) => user.name).join(', ')
 
-const Home = () => (
-	<div className="flex flex-col gap-2 p-8">
-		{links.map(({ text, url }) => (
-			<Link key={url} href={url} className="text-blue-500 hover:underline">
-				{text}
-			</Link>
-		))}
-	</div>
-)
+	return (
+		<div className="flex h-screen w-screen flex-col items-center justify-center gap-6 bg-linear-120 from-slate-700 to-slate-900 text-slate-200">
+			<h1 className="text-xl">
+				See{' '}
+				<code className="rounded-md bg-gray-800 px-2 py-1 text-lg text-slate-300">README.md</code>{' '}
+				for steps on setting up this template
+			</h1>
+
+			<p>Demo users: {names}</p>
+		</div>
+	)
+}
 
 export default Home

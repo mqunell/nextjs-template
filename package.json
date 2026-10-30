@@ -7,10 +7,10 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
+		"db:migrate": "tsx src/db/migrations/001-create-init-users.ts",
 		"lint": "biome check",
 		"lint:fix": "biome check --write",
 		"test": "vitest",
-		"ts-script": "tsx src/server/script.ts",
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
