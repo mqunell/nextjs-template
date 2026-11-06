@@ -1,6 +1,6 @@
 ## What this template includes
 
-- App Router
+- Next.js with App Router
 - TypeScript
 - Tailwind CSS
 - node-postgres (`pg`)
@@ -12,30 +12,54 @@
 
 ## How to use this template
 
-`create-next-app` has an optional `--example` flag that will bootstrap a new project based on an existing GitHub repository. To create a new project from this template, run the following command:
+### Create a new project
+
+`create-next-app` has an optional `--example` flag that will bootstrap a new project based on an existing GitHub repository. To create a new project from this template, replace "app-name" and run the following command:
 
 ```
-pnpm create next-app name-goes-here --use-pnpm --example https://github.com/mqunell/nextjs-template
+pnpm create next-app app-name --use-pnpm --example https://github.com/mqunell/nextjs-template
 ```
 
-<br />
+### Set up Postgres
 
-## Additional setup instructions and usage notes
+For ease of use and getting started quickly, these are the steps for using a cloud host:
 
-### Postgres
-
-1. Set up the [Neon](https://neon.com/) project
-2. Create a `.env` file with the Postgres connection string
+1. Configure an empty database with a provider like [Neon](https://neon.com/)
+2. Create a `.env` file with the Postgres pooled connection string
 
    ```
    POSTGRES_URL=
    ```
 
-### Deployment
+3. Optional: Run the included database migration so the app runs as-is
 
-[Vercel](https://vercel.com/) is recommended for deploying Next.js applications. Simply follow the steps, which include connecting to a GitHub repository and entering environment variables, to host the app online.
+   ```
+   pnpm db:migrate
+   ```
 
-### VS Code Plugins
+### Handle code stubs
+
+These files should be updated, replaced, or removed, depending on your needs:
+
+General
+- `public/favicon.ico`
+- `src/app/layout.tsx` title and description
+- `src/app/page.tsx` page content
+- `src/app/page.test.tsx` page tests
+- `package.json` scripts
+- `README.md`
+
+Database
+- `src/db/queries.ts`
+- `src/db/migrations/*`
+- `src/types/user.ts`
+
+API mocking
+- `src/testing/mocks/handlers.ts`
+
+<br />
+
+## VS Code Plugins
 
 Some plugins that are specifically relevant to this template include:
 
@@ -43,3 +67,10 @@ Some plugins that are specifically relevant to this template include:
 - Tailwind CSS IntelliSense
 - Tailwind Fold
 - Vitest
+
+<br />
+
+
+## Deployment
+
+[Vercel](https://vercel.com/) makes deploying Next.js applications very easy. Follow the steps to create a new project, which include connecting to a GitHub repository and entering environment variables, to host the app online.
