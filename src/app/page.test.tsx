@@ -16,8 +16,8 @@ describe('Home', () => {
 
 		render(await Home())
 
-		expect(screen.getByRole('heading', { name: /README\.md/i }))
-		expect(screen.getByRole('code')).toHaveTextContent(/README.md/)
+		expect(screen.getByRole('heading', { name: /README\.md/i })).toBeInTheDocument()
+		expect(screen.getByRole('code')).toHaveTextContent(/README\.md/)
 		expect(screen.getByText('Demo users: Alice, Bob, Charlie')).toBeInTheDocument()
 	})
 })
