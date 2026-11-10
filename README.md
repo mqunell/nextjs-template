@@ -31,7 +31,7 @@ For ease of use and getting started quickly, these are the steps for using a clo
    POSTGRES_URL=
    ```
 
-3. Optional: Run the included database migration so the app runs as-is
+3. Optional: Run the included database migration. _If you do this, don't forget to drop the `users` and `migrations` tables later on._
 
    ```
    pnpm db:migrate
@@ -51,7 +51,7 @@ General
 
 Database
 - `src/db/queries.ts`
-- `src/db/migrations/*`
+- `src/db/migrations/001-create-users-table.sql`
 - `src/types/user.ts`
 
 API mocking
