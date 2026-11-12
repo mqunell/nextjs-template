@@ -20,3 +20,5 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm test --run
       - run: pnpm build
+        env:
+          POSTGRES_URL: postgres://user:pass@localhost:1234/db # Placeholder: build needs the var set but never connects
