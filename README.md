@@ -64,6 +64,7 @@ API mocking
 Some plugins that are specifically relevant to this template include:
 
 - Biome
+- SQL Formatter (or alternative)
 - Tailwind CSS IntelliSense
 - Tailwind Fold
 - Vitest
