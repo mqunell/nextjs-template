@@ -42,6 +42,7 @@ For ease of use and getting started quickly, these are the steps for using a clo
 These files should be updated, replaced, or removed, depending on your needs:
 
 General
+
 - `public/favicon.ico`
 - `src/app/layout.tsx` title and description
 - `src/app/page.tsx` page content
@@ -50,11 +51,13 @@ General
 - `README.md`
 
 Database
+
 - `src/db/queries.ts`
 - `src/db/migrations/001-create-users-table.sql`
 - `src/types/user.ts`
 
 API mocking
+
 - `src/testing/mocks/handlers.ts`
 
 <br />
@@ -70,7 +73,6 @@ Some plugins that are specifically relevant to this template include:
 - Vitest
 
 <br />
-
 
 ## Deployment
 
